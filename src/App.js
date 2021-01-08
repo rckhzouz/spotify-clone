@@ -37,6 +37,8 @@ function App() {
           playlists: playlists,
         });
       });
+
+      
     }
   }, [token, dispatch]);
 
