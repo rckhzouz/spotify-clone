@@ -4,6 +4,11 @@ export const initialState = {
     playing: false,
     item: null,
     token: null,
+    track: {
+        title: null,
+        artist: null,
+        image: null
+    }
 }
 
 const reducer = (state, action) => {
@@ -25,6 +30,15 @@ const reducer = (state, action) => {
                 ...state,
                 playlists: action.playlists,
             };
+        case 'SET_TRACK':
+            return {
+                ...state,
+                track: {
+                    title: action.track.title,
+                    artist: action.track.artist,
+                    image: action.track.image,
+                },
+            }
         default:
             return state;
     }

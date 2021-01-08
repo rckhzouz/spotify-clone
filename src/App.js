@@ -38,7 +38,16 @@ function App() {
         });
       });
 
-      
+      spotify.getMyCurrentPlayingTrack().then((response) => {
+        dispatch({
+          type: 'SET_TRACK',
+          track: {
+            title: response?.item?.name,
+            artist: response?.item?.artists,
+            image: response?.item?.album?.images[0]?.url,
+          },
+        });
+      });
     }
   }, [token, dispatch]);
 
