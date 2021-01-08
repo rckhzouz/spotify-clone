@@ -7,3 +7,5 @@ export const StateProvider = ({ initialState, reducer, children }) => (
         {children}
     </StateContext.Provider>
 );
+
+export const useStateValue = () => useContext(StateContext);
