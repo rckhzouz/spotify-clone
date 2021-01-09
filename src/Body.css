@@ -18,8 +18,10 @@
 }
 
 .body__info > img {
-  height: 20vw;
-  min-height: 160px;
+  height: 230px;
+  width: 230px;
+  object-fit: cover;
+  min-width: 160px;
   margin: 0 20px;
   box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
 }
@@ -60,5 +62,5 @@
 
 .body__songs {
   margin: 20px -30px;
-  margin-bottom: 65px;
+  margin-bottom: 85px;
 }
