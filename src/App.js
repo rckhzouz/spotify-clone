@@ -48,6 +48,20 @@ function App() {
           },
         });
       });
+
+      spotify.getUserPlaylists({limit: 50}).then((playlists) => {
+        dispatch({
+          type: 'SET_PLAYLIST',
+          playlist: playlists?.items[0],
+        });
+      });
+
+      spotify.getPlaylist('').then(response => {
+        dispatch({
+          type: 'SET_DISCOVER_WEEKLY',
+          discover_weekly: response,
+        })
+      })
     }
   }, [token, dispatch]);
 

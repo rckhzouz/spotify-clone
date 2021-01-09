@@ -5,6 +5,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import SearchIcon from '@material-ui/icons/Search';
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 import { useStateValue } from './StateProvider';
+import SidebarPlaylists from './SidebarPlaylists';
 
 function Sidebar() {
     const [{ playlists }, dispatch] = useStateValue();
@@ -23,9 +24,7 @@ function Sidebar() {
             <strong className='sidebar__title'>PLAYLISTS</strong>
             <hr />
 
-            {playlists?.items?.map(playlist => (
-                <SidebarOption title={playlist.name} />
-            ))}
+            <SidebarPlaylists />
         </div>
     )
 }

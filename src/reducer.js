@@ -8,7 +8,9 @@ export const initialState = {
         title: null,
         artist: null,
         image: null
-    }
+    },
+    browse: [],
+    playlist: null,
 }
 
 const reducer = (state, action) => {
@@ -38,6 +40,21 @@ const reducer = (state, action) => {
                     artist: action.track.artist,
                     image: action.track.image,
                 },
+            }
+        case 'SET_BROWSE':
+            return {
+                ...state,
+                browse: action.browse,
+            }
+        case 'SET_PLAYLIST':
+            return {
+                ...state,
+                playlist: action.playlist,
+            }
+        case 'SET_DISCOVER_WEEKLY':
+            return {
+                ...state,
+                discover_weekly: action.discover_weekly,
             }
         default:
             return state;
