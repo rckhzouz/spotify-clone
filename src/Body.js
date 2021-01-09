@@ -10,8 +10,12 @@ import SongRow from './SongRow';
 function Body({ spotify }) {
     const [{ browse, playlist }, dispatch] = useStateValue();
 
+    useEffect(() => {
+        document.getElementById('body').scrollTo(0, 0);
+      }, [playlist]);
+
     return (
-        <div className='body'>
+        <div id='body' className='body'>
             <Header spotify={spotify}/>
 
             <div className='body__info'>

@@ -11,6 +11,7 @@ export const initialState = {
     },
     browse: [],
     playlist: null,
+    spotify: null,
 }
 
 const reducer = (state, action) => {
@@ -50,6 +51,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 playlist: action.playlist,
+            }
+        case 'SET_SPOTIFY':
+            return {
+                ...state,
+                spotify: action.spotify,
             }
         default:
             return state;

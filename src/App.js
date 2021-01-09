@@ -24,6 +24,11 @@ function App() {
         token: _token
       });
 
+      dispatch({
+        type: 'SET_SPOTIFY',
+        spotify: spotify
+      });
+
       spotify.getMe().then(user => {
         dispatch({
           type: 'SET_USER',

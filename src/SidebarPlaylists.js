@@ -8,8 +8,8 @@ function SidebarPlaylists() {
 
     return (
         <div className='sidebarPlaylists'>
-            {playlists?.items?.map(playlist => (
-                <SidebarOption title={playlist.name} />
+            {playlists?.items?.map((playlist, index) => (
+                <SidebarOption index={index} title={playlist.name} />
             ))}
         </div>
     )
