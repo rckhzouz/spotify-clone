@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Footer.css';
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
@@ -9,9 +9,27 @@ import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
 import VolumeDownIcon from '@material-ui/icons/VolumeDown';
 import { Grid, Slider } from '@material-ui/core';
 import { useStateValue } from './StateProvider';
+import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
 
 function Footer() {
-    const [{ track }, dispatch] = useStateValue();
+    const [{ track, playing, spotify }, dispatch] = useStateValue();
+
+    const pauseOrPlay = () => {
+        if (playing) {
+            dispatch({
+                type: 'SET_PLAYING',
+                playing: false
+            });
+            spotify.pause();
+        }
+        else {
+            dispatch({
+                type: 'SET_PLAYING',
+                playing: true
+            });
+            spotify.play();
+        }
+    }
 
     return (
         <div className='footer'> 
@@ -28,7 +46,7 @@ function Footer() {
             <div className='footer__center'>
                 <ShuffleIcon className='footer__green' />
                 <SkipPreviousIcon className='footer__icon' />
-                <PlayCircleOutlineIcon fontSize='large' className='footer__icon' />
+                {playing ? <PauseCircleOutlineIcon onClick={pauseOrPlay} fontSize='large' className='footer__icon'/> : <PlayCircleOutlineIcon onClick={pauseOrPlay} fontSize='large' className='footer__icon' />}
                 <SkipNextIcon className='footer__icon' />
                 <RepeatIcon className='footer__green'/>
             </div>

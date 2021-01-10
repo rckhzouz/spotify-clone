@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './SidebarOption.css';
 import { useStateValue } from './StateProvider';
 
 function SidebarOption({ title, Icon, index }) {
     const [{ spotify }, dispatch] = useStateValue();
 
-    const handleClick = () => {
+    const handleClick = (event) => {
         if (index == null) {
             return;
         }
@@ -21,7 +21,7 @@ function SidebarOption({ title, Icon, index }) {
     }
 
     return (
-        <div onClick={handleClick} className='sidebarOption'>
+        <div onClick={((e) => handleClick(e))} className='sidebarOption'>
             {Icon && <Icon className='sidebarOption__icon'/>}
             {Icon ? <h4>{title}</h4> : <p>{title}</p>}
         </div>

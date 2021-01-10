@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SidebarOption from './SidebarOption';
 import './SidebarPlaylists.css';
 import { useStateValue } from './StateProvider';

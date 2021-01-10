@@ -51,6 +51,7 @@ function App() {
             artist: response?.item?.artists,
             image: response?.item?.album?.images[0]?.url,
           },
+          playing: response?.is_playing,
         });
       });
 

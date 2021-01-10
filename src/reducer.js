@@ -41,6 +41,7 @@ const reducer = (state, action) => {
                     artist: action.track.artist,
                     image: action.track.image,
                 },
+                playing: action.playing,
             }
         case 'SET_BROWSE':
             return {
@@ -56,6 +57,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 spotify: action.spotify,
+            }
+        case 'SET_PLAYING':
+            return {
+                ...state,
+                playing: action.playing,
             }
         default:
             return state;
