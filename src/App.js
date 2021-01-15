@@ -5,6 +5,9 @@ import { getTokenFromUrl } from './spotify';
 import SpotifyWebApi from 'spotify-web-api-js';
 import Player from './Player';
 import { useStateValue } from './StateProvider';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Demo from './Demo';
+import { demoPlaylists } from './demoPlaylists';
 
 const spotify = new SpotifyWebApi();
 
@@ -64,14 +67,31 @@ function App() {
         });
       });
     }
+    else {
+      dispatch({
+        type: 'SET_PLAYLIST',
+        playlist: demoPlaylists[0],
+      });
+    }
   }, [token, dispatch]);
 
   return (
-    <div className="app">
-      {
-        token ? <Player spotify={spotify}/> : <Login/>
-      }
-    </div>
+    <Router>
+      <Switch>
+
+        <Route path='/demo'>
+          <Demo />
+        </Route>
+
+        <Route path='/'>
+          {
+            token ? <Player spotify={spotify}/> : <Login/>
+          }
+        </Route>
+
+      </Switch>
+    </Router>
+    
   );
 }
 

@@ -1,0 +1,5 @@
+.demo__body {
+  display: flex;
+  position: fixed;
+  width: 100%;
+}

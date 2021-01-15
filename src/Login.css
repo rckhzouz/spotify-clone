@@ -16,4 +16,9 @@
   font-weight: 800;
   color: white;
   text-decoration: none;
+  transition: 100ms background-color ease-in;
+}
+
+.login > a:hover {
+  background-color: #3fc96f;
 }
